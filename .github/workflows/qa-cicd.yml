@@ -443,7 +443,7 @@ jobs:
 
       - name: Run Trivy image scan (TABLE)
         run: |
-          trivy image piratehammad/nodejs-app:${{ github.sha }} \
+          trivy image pirat/nodejs-app:${{ github.sha }} \
             --format table \
             --severity HIGH,CRITICAL \
             --ignore-unfixed \
@@ -468,6 +468,6 @@ jobs:
         with:
           push: true
           tags: |
-            piratehammad/nodejs-app:${{ github.sha }}
-            piratehammad/nodejs-app:latest
+            piratejs-app:${{ github.sha }}
+            pira/nodejs-app:latest
       
