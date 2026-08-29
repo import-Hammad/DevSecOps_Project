@@ -470,4 +470,28 @@ jobs:
           tags: |
             piratehammad/nodejs-app:${{ github.sha }}
             piratehammad/nodejs-app:latest
+
+      - name: Generate source SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          path: .
+          format: spdx-json
+          output-file: source-sbom.spdx.json
+          upload-artifact: true
+
+      - name: Generate image SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          image: piratehammad/nodejs-app:${{ github.sha }}
+          format: spdx-json
+          output-file: image-sbom.spdx.json
+          upload-artifact: true  
+          
+      - name: Push
+        uses: docker/build-push-action@v7
+        with:
+          push: true
+          tags: |
+            piratehammad/nodejs-app:${{ github.sha }}
+            piratehammad/nodejs-app:latest
       
