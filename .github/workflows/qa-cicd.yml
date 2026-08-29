@@ -1,6 +1,6 @@
 # Trigger Test-1
 name: Enterprise DevSecOps CICD Pipeline
-onn:
+on:
   push:
     branches:
       - qa
@@ -443,7 +443,7 @@ jobs:
 
       - name: Run Trivy image scan (TABLE)
         run: |
-          trivy image pirat/nodejs-app:${{ github.sha }} \
+          trivy image piratehammad/nodejs-app:${{ github.sha }} \
             --format table \
             --severity HIGH,CRITICAL \
             --ignore-unfixed \
@@ -468,6 +468,6 @@ jobs:
         with:
           push: true
           tags: |
-            piratejs-app:${{ github.sha }}
-            pira/nodejs-app:latest
+            piratehammad/nodejs-app:${{ github.sha }}
+            piratehammad/nodejs-app:latest
       
