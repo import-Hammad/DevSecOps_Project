@@ -1,6 +1,6 @@
 # Trigger Test-1
 name: Enterprise DevSecOps CICD Pipeline
-on:
+oon:
   push:
     branches:
       - qa
